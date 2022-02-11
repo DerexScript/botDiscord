@@ -9,9 +9,9 @@ module.exports.run = async (client, message, args) => {
         .setTitle(":ping_pong:Pong")
         .addField(":robot:BOT: ", Math.floor(clientping) + "ms")
         .addField(":desktop:API: ", Math.floor(client.ws.ping) + "ms")
-        .setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+        .setFooter({ text: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL()}` })
         .setColor("RED")
-        message.channel.send(embed)
+        message.channel.send({ embeds: [embed] });
 }
 
 module.exports.help = {
